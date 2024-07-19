@@ -1,35 +1,24 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+- run `get_idf` on new terminal to setup and use _idf environment_.
+- By default `ESP_LOGD` and `ESP_LOGV` turned off, you can turn them on with **menuconfig**      
+- Run `idf.py menuconfig` and go to `Component config` and scroll down to `Log output -->` and select `verbose` 
+- Logs are in following order, if you wish to get debug log `ESP_LOGD` then it can log from `ESP_LOGE` till `ESP_LOGD`. Therefore `ESP_LOGV` will not run.    
+     
+```c
+  ESP_LOGE("LOG", "This is an error");
+  ESP_LOGW("LOG", "This is a warning");
+  ESP_LOGI("LOG", "This is an info");
+  ESP_LOGD("LOG", "This is a Debug");
+  ESP_LOGV("LOG", "This is Verbose");
+```       
+    
+- Beside configuring the Log settings in _menuconfig_ you can also configure it through code `esp_log_level_set("LOG", ESP_LOG_INFO)`. since we gave the tag `LOG` in `esp_log_level_set` hence tag with `LOG` will run upto `ESP_LOGI`. Other tags will have _menuconfig_ configuration.       
+- After Tag (i.e. _"LOG"_) string (i.e. _"This is an error"_) comes, is basically formatted string. Hence you can use _format specifier_ in it.       
+      
+```c        
+ESP_LOGE("LOG", "This is an error %d", error_number);
+```      
+     
+> [!IMPORTANT]     
+> Dont forget to include `esp_log.h` on top	 
+     
 
-# _Sample project_
-
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
-
-
-
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
-
-## Example folder contents
-
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
-
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
