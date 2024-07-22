@@ -1,0 +1,1 @@
+`xTaskCreatePinnedToCore(&task2, "humidity reading", 2048, "Task 2", 2, NULL, 1)` if you use 0 in the last parameter is same as using `xTaskCreate` API. However `1` will give the task an ability to use second core
