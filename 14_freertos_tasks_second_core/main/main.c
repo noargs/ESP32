@@ -19,7 +19,7 @@ void task2(void *params)
   while(true)
   {
     printf("%s: Reading Humidity\n", (char*)params);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    vTaskDelay(2000 / portTICK_PERIOD_MS);
   }
 }
 
