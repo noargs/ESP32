@@ -17,4 +17,4 @@ If the minimum timeout values slightly exceed the requirements, the Interrupt Di
        
 For even smaller timeout values, for example, to generate or receive waveforms or do bit banging, the resolution of ESP Timer may be insufficient. In this case, it is recommended to use dedicated peripherals, such as GPTimer or RMT, and their DMA features if available.       
       
-<img src="imgs/01.png" alt="Waveform on GPIO 4 with timer" title="Waveform on GPIO 4 with timer">    
+<img src="../imgs/01.png" alt="Waveform on GPIO 4 with timer" title="Waveform on GPIO 4 with timer">    
