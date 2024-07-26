@@ -31,6 +31,6 @@ That's how we updated the SPIFFS on our chip without changing our application.
      
 Now only run `idf.py monitor` without `flash` command. You will see the _html_ will be updated with `<h1>Hello world!</h1>` inside `<body>`    
      
-**How to calculate the start address**     
+## How to calculate the start address    
      
 <img src="../imgs/02.png" alt="Calculate the start address of storage" title="Calculate the start address of storage">        
