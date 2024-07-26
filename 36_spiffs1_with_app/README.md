@@ -1,3 +1,16 @@
+### SPIFFS (SPI Flash File System)   
+     
+- Flash an entire directory into flash   
+- Using common c file functions to create/read/upadte/delete files.   
+- Size is configured in the partition table        
+- Does not currently support directory structure but the filename can act like a path      
+     
+## SPIFFS Process    
+
+- Use a tool to convert a directory to a bin file. This can optionally be done at build time.
+- Use a tool to load the file into flash. This can optionally be done at flash time.    
+     
+     
 Go to `esp/esp-idf/components/partition_table` and copy the file `partitions_singleapp.csv` into our project and rename it to `paritions.csv` which contains the following table.   
 
 | Name | Type | SubType | Offset | Size | Flags |
