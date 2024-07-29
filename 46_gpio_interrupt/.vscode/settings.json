@@ -1,0 +1,19 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.adapterTargetName": "esp32",
+  "idf.customExtraPaths": "/Users/ibn/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin:/Users/ibn/.espressif/tools/riscv32-esp-elf-gdb/14.2_20240403/riscv32-esp-elf-gdb/bin:/Users/ibn/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin:/Users/ibn/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20230928/riscv32-esp-elf/bin:/Users/ibn/.espressif/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/Users/ibn/.espressif/tools/cmake/3.24.0/CMake.app/Contents/bin:/Users/ibn/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/bin:/Users/ibn/.espressif/tools/ninja/1.11.1:/Users/ibn/.espressif/tools/esp-rom-elfs/20230320",
+  "idf.customExtraVars": {
+    "OPENOCD_SCRIPTS": "/Users/ibn/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+    "ESP_ROM_ELF_DIR": "/Users/ibn/.espressif/tools/esp-rom-elfs/20230320/"
+  },
+  "idf.espIdfPath": "/Users/ibn/esp/esp-idf",
+  "idf.openOcdConfigs": [
+    "board/esp32-wrover-kit-3.3v.cfg"
+  ],
+  "idf.port": "/dev/tty.usbserial-0001",
+  "idf.pythonBinPath": "/Users/ibn/.espressif/python_env/idf5.2_py3.12_env/bin/python",
+  "idf.toolsPath": "/Users/ibn/.espressif",
+  "files.associations": {
+    "gpio.h": "c"
+  }
+}
