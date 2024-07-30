@@ -7,4 +7,4 @@ Board [Schematic](docs/esp32_devkitc_v4_schematic.pdf), [Datasheet](docs/esp32-w
 	   
 ## Pinout	   
      
-<img src="imgs/esp32-devkitC-v4-pinout.jpg" alt="esp32 devkitC v4 pinout" title="esp32 devkitC v4 pinout"> 	 
+<img src="imgs/esp32_devkitC_v4_pinout.jpg" alt="esp32 devkitC v4 pinout" title="esp32 devkitC v4 pinout"> 	 
