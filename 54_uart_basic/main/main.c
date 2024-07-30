@@ -4,10 +4,11 @@
 #include "driver/uart.h"
 #include "string.h"
 
-#define TXD_PIN   4  // (GPIO_NUM_17)
-#define RXD_PIN   5  // (GPIO_NUM_16)
+#define TXD_PIN   4  
+#define RXD_PIN   5  
 
-#define UART_NUM  UART_NUM_1
+#define UART_NUM  UART_NUM_2
+
 
 #define RX_BUF_SIZE    1024
 
