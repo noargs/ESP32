@@ -45,9 +45,9 @@ Furthermore, in the case `rxd_in` (in reception) **Baudrate_Detect** name implie
 
 Three UART controller shares 8bit RAM[1024] space (1024 x 8-bit). In other word increment 128 bytes offset for each buffer Rx/Tx buffer of UARTn.         
 
-| Offset |  Peri/Buffer  |                
-|:-----------||:-----------|
-| 0 - 128 | UART0 Tx_FIFO |
+| Offset |  Peri-Buffer  |                
+|:-----------|:-----------|     
+| 0 - 128 | UART0 Tx_FIFO |     
 | 128 - 256 | UART1 Tx_FIFO |    
 | 256 - 384 | UART2 Tx_FIFO |     
 | 384 - 512 |  |    
@@ -71,7 +71,7 @@ Three UART controller shares 8bit RAM[1024] space (1024 x 8-bit). In other word 
      
 ### UART peripherals    
 | UART Port | Rx | Tx | Useable |
-|:------------|:------------|:-----------------------------|
+|:------------|:------------||:------------|:-----------------------------|
 | UART0 | GPIO3 | GPIO1 |    |       
 **| UART1 | GPIO5 | GPIO4 |    |**    
 | UART2 | GPIO16 | GPIO17 |    |
