@@ -73,7 +73,7 @@ Three UART controller shares 8bit RAM[1024] space (1024 x 8-bit). In other word 
 | UART Port | Rx | Tx | Useable |
 |:---------|:---------|:---------|:-----------------------------|
 | UART0 | GPIO3 | GPIO1 |    |       
-**| UART1 | GPIO5 | GPIO4 |    |**    
+| **UART1** | **GPIO5** | **GPIO4** | Tested and working fine   |    
 | UART2 | GPIO16 | GPIO17 |    |
       
 ### Application Instruction     
