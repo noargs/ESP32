@@ -16,4 +16,9 @@ Run `idf.py menuconfig`:
 - Component config > Common ESP-related > UART peripheral to use for console output > UART1    
 - Component config > Common ESP-related > UART RX on GPIO# > 21    
 - Component config > Common ESP-related > UART TX on GPIO# > 19    
-- Component config > Common ESP-related > UART console baud rate > 9600
+- Component config > Common ESP-related > UART console baud rate > 9600   
+    
+Now run `idf.py build`   
+
+Find out the port name in which your bluetooth module is connected   
+`idf.py -p /dev/cu.JDY-31-SPP monitor`        
