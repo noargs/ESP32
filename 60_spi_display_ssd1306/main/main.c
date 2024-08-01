@@ -24,8 +24,9 @@
 
 static char tag[] = "Ibn_SSD1306";
 uint8_t raw[2];
-void get_temp(void);
 char display_data[20];
+u8g2_t u8g2;
+void out_static_display(void);
 
 void app_main(void)
 {
@@ -38,7 +39,7 @@ void app_main(void)
   u8g2_esp32_hal_init(u8g2_esp32_hal);
 
   /** a structure to contain all the data for a single display */
-  u8g2_t u8g2;
+  
 
   /** init u8g2 structure */
   u8g2_Setup_ssd1306_128x64_noname_f(
@@ -54,13 +55,6 @@ void app_main(void)
   /** wakeup display */
   u8g2_SetPowerSave(&u8g2, 0);
   u8g2_ClearBuffer(&u8g2);
-  // u8g2_DrawBox(&u8g2, 10, 20, 20, 30);
-  //  u8g2_SetFont(&u8g2, u8g2_font_open_iconic_weather_4x_t);
-  // u8g2_SetFont(&u8g2, u8g2_font_unifont_t_symbols);
-  // u8g2_SetFont(&u8g2, u8g2_font_cupcakemetoyourleader_tu);
-  // u8g2_DrawStr(&u8g2, 0, 15, "Hello World!");
-  // u8g2_DrawCircle(&u8g2, 30, 20, 10, U8G2_DRAW_ALL);
-  // u8g2_SendBuffer(&u8g2);  
 
 
     i2c_config_t i2c_config = {
@@ -81,7 +75,8 @@ void app_main(void)
   i2c_master_read(cmd_handle, (uint8_t*)&raw, 2, I2C_MASTER_ACK);
   i2c_master_stop(cmd_handle);
 
-  memset(display_data, 0, sizeof(display_data));
+  out_static_display();
+
   while (true)
   {
     i2c_master_cmd_begin(I2C_NUM, cmd_handle, 1000/portTICK_PERIOD_MS);
@@ -93,27 +88,10 @@ void app_main(void)
     }
     int16_t data = (raw[0] << 8 | raw[1]) >> 5;
     float temperature = (data * 0.125) * (isNeg ? -1 : 1);
-    // printf("Temp: %.1f°C\n", temperature);
     u8g2_SetFont(&u8g2, u8g2_font_cupcakemetoyourleader_tu);
     sprintf(display_data, "%.1f", temperature);
     printf(display_data);
     u8g2_DrawUTF8(&u8g2, 0, 15, display_data);
-    u8g2_SetFont(&u8g2, u8g2_font_unifont_h_symbols);
-    u8g2_DrawUTF8(&u8g2, 39, 15, "°");
-    u8g2_SetFont(&u8g2, u8g2_font_cupcakemetoyourleader_tu);
-    u8g2_DrawStr(&u8g2, 47, 15, "C");
-    u8g2_SetFont(&u8g2, u8g2_font_5x7_tf);
-    u8g2_DrawStr(&u8g2, 62, 7, "DUBLIN");
-    u8g2_SetFont(&u8g2, u8g2_font_unifont_t_symbols);
-    u8g2_DrawGlyph(&u8g2, 70, 30, 0x2601 );
-    // u8g2_SetFont(&u8g2, u8g2_font_ciircle13_tr);
-    u8g2_SetFont(&u8g2, u8g2_font_ciircle13_tr);
-    u8g2_DrawUTF8(&u8g2, 0, 28, "Aslamualikum");
-    u8g2_DrawStr(&u8g2, 0, 44, "Bro");
-    u8g2_SetFont(&u8g2, u8g2_font_unifont_t_symbols);
-    u8g2_DrawGlyph(&u8g2, 34, 44, 0x2665 );
-    u8g2_SetFont(&u8g2, u8g2_font_ciircle13_tr);
-    u8g2_DrawStr(&u8g2, 0, 59, "How are you!!");
     u8g2_SendBuffer(&u8g2);
     vTaskDelay(5000/portTICK_PERIOD_MS);
   }
@@ -121,4 +99,37 @@ void app_main(void)
   i2c_cmd_link_delete(cmd_handle);
 
   ESP_LOGD(tag, "All done!");
-} 
+}
+
+void out_static_display(void)
+{
+  u8g2_SetFont(&u8g2, u8g2_font_unifont_h_symbols);
+  u8g2_DrawUTF8(&u8g2, 37, 12, "°");
+  u8g2_SetFont(&u8g2, u8g2_font_cupcakemetoyourleader_tu);
+  u8g2_DrawStr(&u8g2, 44, 15, "C");
+
+  u8g2_SetFont(&u8g2, u8g2_font_unifont_t_symbols);  // TODO: Sun/Moon/Cloudy
+  u8g2_DrawGlyph(&u8g2, 58, 15, 0x2600 );
+  u8g2_SetFont(&u8g2, u8g2_font_unifont_t_77);
+  u8g2_DrawGlyph(&u8g2, 59, 15, 0x26ef );
+
+  u8g2_SetFont(&u8g2, u8g2_font_5x7_tf);
+  u8g2_DrawStr(&u8g2, 88, 7, "CARRICK");              // TODO: GPS locatioon
+  u8g2_DrawStr(&u8g2, 88, 15, "01:24 PM");            // TODO: RTC time goes here 
+
+  
+  u8g2_SetFont(&u8g2, u8g2_font_ciircle13_tr);
+  u8g2_DrawUTF8(&u8g2, 0, 28, "Aslamualikum");
+  u8g2_DrawStr(&u8g2, 0, 44, "Thanks");
+  u8g2_SetFont(&u8g2, u8g2_font_unifont_t_78_79);     // emoji
+  u8g2_DrawGlyph(&u8g2, 52, 44, 0x2764);
+  u8g2_SetFont(&u8g2, u8g2_font_streamline_all_t);    // ship
+  u8g2_DrawGlyph(&u8g2, 85, 53, 0x0050 );
+  u8g2_SetFont(&u8g2, u8g2_font_streamline_all_t);    // tortoise
+  u8g2_DrawGlyph(&u8g2, 75, 70, 0x0252 );
+  u8g2_SetFont(&u8g2, u8g2_font_streamline_all_t);    // palm tree
+  u8g2_DrawGlyph(&u8g2, 107, 60, 0x02a4 );
+  u8g2_SetFont(&u8g2, u8g2_font_ciircle13_tr);
+  u8g2_DrawStr(&u8g2, 0, 59, "You well?");
+  u8g2_SendBuffer(&u8g2);
+}

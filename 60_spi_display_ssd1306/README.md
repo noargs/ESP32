@@ -8,9 +8,6 @@ Both libraries can be found in the [components](./components/) directory
 > If you newly intergrated these projects straight from github don't forget to initialise `dev_config` as it cause a [bug](https://github.com/nkolban/esp32-snippets/issues/1170) `spi_device_interface_config_t dev_config = {0};` in `u8g2_esp32_hal.c`.         
      
 
-
-
-
 ### Connection details    
         
 | ESP32 | SSD1306 |   
@@ -29,4 +26,10 @@ Both libraries can be found in the [components](./components/) directory
 | GND | GND |
 | 26 | SDA |
 | 25 | SCL |     
+    
+> To play with Emojis, Icons etc [Read more](https://github.com/olikraus/u8g2/wiki/fnticons)       
+
+> TODOS: Obtain location from GPS Module to get local weather and change icons (Sun/cloudy) accordingly and also city name
+> TODOS: RTC current time
+> TODOS: Make a request to API to get quote etc.       
 
