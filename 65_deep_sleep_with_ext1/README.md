@@ -1,4 +1,4 @@
-EXT1 is usefull because it has few other options then EXT0. Another difference is EXT0 actually turns on every rtc peripheral, on the other hand, EXT1 doesn't (enable with `esp_sleep_pd_config()`).     
+EXT1 is useful as it has few other options than EXT0. Another difference is EXT0 actually turns on every rtc peripheral, on the other hand, EXT1 doesn't (enable with `esp_sleep_pd_config()`).     
     
 `esp_sleep_pd_config()` its takes two parameters `domain` and `option`. domain has following structure:   
 ```c
