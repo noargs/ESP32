@@ -47,7 +47,8 @@ In `esp_sleep_enable_ext1_wakeup(mask, mode)` we can put multiple pins with `mas
      
 When both push buttons are pressed (GNDed) then chip will wakeup.    
 
-| ESP32 | Push Button 1 | Push Button 2 |   
+| ESP32 | Push Button 1 | Push Button 2 |     
+|:--------|:--------|:--------|    
 | 25 | one side | |   
 | 26 | | one side |    
 | GND | other end | other end |    
