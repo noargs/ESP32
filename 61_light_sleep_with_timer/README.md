@@ -19,7 +19,7 @@
 | Touch pad | Touch pad |   
 | External wakeup | External wakeup |    
 | (ULP Coprocessor ADC) | $${\color{darkgray}(ULP Coprocessor ADC)}$$ |    
-| (ULP Corprocessor I<sup>2</sup>C) | $${\color{darkgray}(ULP Corprocessor I<sup>2</sup>C)}$$ |    
+| (ULP Corprocessor I<sup>2</sup>C) | $${\color{darkgray}(ULP Corprocessor I2C)}$$ |    
 | GPIO wakeup |  |     
 | UART wakeup |  |       
     
