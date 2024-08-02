@@ -10,6 +10,7 @@ RTC_DATA_ATTR int timesWokenUp = 0;
 
 void app_main(void)
 {
+  rtc_gpio_deinit(BUTTON);
   rtc_gpio_pullup_en(BUTTON);
   rtc_gpio_pullup_dis(BUTTON);
   esp_sleep_enable_ext0_wakeup(BUTTON, 0);

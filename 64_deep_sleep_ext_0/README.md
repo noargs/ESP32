@@ -1,3 +1,3 @@
 | ESP32 | Push button |   
-| GND | one side |    
-| 25 | other side |
+| GND | one end |    
+| 25 | other end |
