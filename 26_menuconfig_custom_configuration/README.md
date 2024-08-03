@@ -4,8 +4,11 @@ Type in terminal `idf.py menuconfig` and go to your menu, in our case it is `"My
 
 Now run `idf.py build` and it will do full build as configuration has been changed.     
 
-You can find your configuration will be generated at `build/config/sdkconfig.h` and names like `MY_STRING` will be prefixed with `CONFIG` (i.e. `#define CONFIG_MY_STRING`)    
-
+You can find your configuration will be generated at `build/config/sdkconfig.h` and names like `MY_STRING` will be prefixed with `CONFIG` (i.e. `#define CONFIG_MY_STRING`)       
+     
+> [!IMPORTANT]      
+> When you newly import `Kconfig.projbuild` from another project, after you already build your current project and options from `Kconfig.projbuild` doesnt show up in `idf.py menuconfig` then it's better to run `idf.py fullclean` before going to `idf.py menuconfig`       
+     
 You can reference these configuration from `main.c`      
 ```c
 #include <stdio.h>
