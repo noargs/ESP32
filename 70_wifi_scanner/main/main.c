@@ -16,7 +16,7 @@ void app_main(void)
   esp_wifi_start();
 
   wifi_scan_config_t wifi_scan_config = { // whatever you need mention here (i.e. want to see `show hidden` make true )
-    .show_hidden = true,
+    // .show_hidden = true,
   };
   esp_wifi_scan_start(&wifi_scan_config, true);
 
@@ -38,7 +38,6 @@ void app_main(void)
   }
   printf("----------------------------------------------------------------\n");
 }
-
 
 char *getAuthModeName(wifi_auth_mode_t wifi_auth_mode)
 {
