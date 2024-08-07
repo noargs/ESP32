@@ -40,7 +40,7 @@ char *create_email_body()
   cJSON_AddItemToObject(personalization_0, "to", to);
 
   cJSON *to_0 = cJSON_CreateObject();
-  cJSON_AddStringToObject(to_0, "email", "asim.ibn.asghar@gmail.com");
+  cJSON_AddStringToObject(to_0, "email", "to@gmail.com");
   cJSON_AddStringToObject(to_0, "name", "Bro");
   cJSON_AddItemToArray(to, to_0);
 
@@ -56,12 +56,12 @@ char *create_email_body()
 
   cJSON *from = cJSON_CreateObject();
   cJSON_AddItemToObject(json_payload, "from", from);
-  cJSON_AddStringToObject(from, "email", "o0teboy@hotmail.com");
+  cJSON_AddStringToObject(from, "email", "from@hotmail.com");
   cJSON_AddStringToObject(from, "name", "Ibn");
 
   cJSON *reply_to = cJSON_CreateObject();
   cJSON_AddItemToObject(json_payload, "reply_to", reply_to);
-  cJSON_AddStringToObject(reply_to, "email", "o0teboy@hotmail.com");
+  cJSON_AddStringToObject(reply_to, "email", "from@hotmail.com");
   cJSON_AddStringToObject(reply_to, "name", "Ibn");
 
   char *payload_body = cJSON_Print(json_payload);

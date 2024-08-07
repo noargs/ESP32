@@ -18,11 +18,11 @@ Content-type:   application/json
     {
       "to": [
         {
-          "email": "asim.ibn.asghar@gmail.com",
+          "email": "to@gmail.com",
           "name": "Bro"
         }
       ],
-      "subject": "Hello, World!"
+      "subject": "RE: its just subjective!!"
     }
   ],
   "content": [
@@ -32,11 +32,11 @@ Content-type:   application/json
     }
   ],
   "from": {
-    "email": "o0teboy@hotmail.com",
+    "email": "from@hotmail.com",
     "name": "Ibn"
   },
   "reply_to": {
-    "email": "o0teboy@hotmail.com",
+    "email": "to@gmail.com",
     "name": "Ibn"
   }
 }
