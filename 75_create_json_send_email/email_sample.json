@@ -3,7 +3,7 @@
     {
       "to": [
         {
-          "email": "asim.ibn.asghar@gmail.com",
+          "email": "to@gmail.com",
           "name": "Bro"
         }
       ],
@@ -17,11 +17,11 @@
     }
   ],
   "from": {
-    "email": "o0teboy@hotmail.com",
+    "email": "from@hotmail.com",
     "name": "Ibn"
   },
   "reply_to": {
-    "email": "o0teboy@hotmail.com",
+    "email": "from@hotmail.com",
     "name": "Ibn"
   }
 }
