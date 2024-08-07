@@ -8,6 +8,8 @@
 
 static const char *TAG = "REST";
 extern const uint8_t cert[] asm("_binary_amazon_single_cert_pem_start");
+void fetch_weather(void);
+esp_err_t onClientData(esp_http_client_event_t *evt);
 
 typedef struct 
 {
@@ -15,20 +17,17 @@ typedef struct
   int buffer_index;
 } chunk_payload_t;
 
-void fetch_quote();
-esp_err_t onClientData(esp_http_client_event_t *evt);
-
 void app_main(void)
 {
   ESP_ERROR_CHECK(nvs_flash_init());
   wifi_init();
   ESP_ERROR_CHECK(wifi_connect_sta("[YOUR WIFI NAME]", "[YOUR WIFI PASSWORD]", 10000));
   
-  fetch_quote();
+  fetch_weather();
   vTaskDelay(pdMS_TO_TICKS(3000));  
 }
 
-void fetch_quote()
+void fetch_weather(void)
 {
   chunk_payload_t chunk_payload = {0};
   esp_http_client_config_t esp_http_client_config = {
