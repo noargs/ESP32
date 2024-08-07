@@ -1,0 +1,27 @@
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "asim.ibn.asghar@gmail.com",
+          "name": "Bro"
+        }
+      ],
+      "subject": "Hello, World!"
+    }
+  ],
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Heya!"
+    }
+  ],
+  "from": {
+    "email": "o0teboy@hotmail.com",
+    "name": "Ibn"
+  },
+  "reply_to": {
+    "email": "o0teboy@hotmail.com",
+    "name": "Ibn"
+  }
+}
