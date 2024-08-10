@@ -28,7 +28,7 @@ void app_main(void)
   init_led();
   init_btn();
   wifi_init();
-  ESP_ERROR_CHECK(wifi_connect_sta("__hw_wifi__", "dude@dude.com", 10000));
+  ESP_ERROR_CHECK(wifi_connect_sta("[YOUR WIFI NAME]", "[YOUR WIFI PASSWORD]", 10000));
 
   start_mdns_server();
   init_server();
