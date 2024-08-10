@@ -6,6 +6,7 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 #include "cJSON.h"
+#include "ws_msg.h"
 
 #define BTN    0  
 
@@ -25,7 +26,7 @@ static void btn_push_task(void *params)
     cJSON_AddBoolToObject(payload, "btn_state", gpio_get_level(BTN));
     char *message = cJSON_Print(payload);
     printf("message: %s\n", message);
-
+    send_ws_message(message);
     cJSON_Delete(payload);
     free(message);
   }
@@ -33,8 +34,8 @@ static void btn_push_task(void *params)
 
 void init_btn(void)
 {
-  xTaskCreate(btn_push_task, "btn_push_task", 2048, NULL, 5, NULL);
   btn_sem = xSemaphoreCreateBinary();
+  xTaskCreate(btn_push_task, "btn_push_task", 2048, NULL, 5, NULL);
   gpio_set_direction(BTN, GPIO_MODE_INPUT);
   // gpio_pullup_en(BTN);
   // gpio_pulldown_dis(BTN);

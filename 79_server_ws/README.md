@@ -1,35 +1,13 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-
-# _Sample project_
-
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
-
-
-
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
-
-## Example folder contents
-
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
-
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+Turn on the websocket support by going to menuconfig `idf.py menuconfig` and select `WebSocket server support`:    
+`Component config > HTTP Server > WebSocket server support`    
+     
+> [!NOTE]      
+> In real world application where you would have multiple clients you may want to make `client_session_id` an array or linked list.     
+     
+- To actually hit the WebSocket endpoint we will need a different client, one of the choice is [Simple Websocket client](https://chromewebstore.google.com/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo) at Chrome webstore.     
+- Install it as Chrome extension and type in URL `ws://my-esp32.local/ws` and hit _Open_. You will encounter an error **W (81699) httpd_txrx: httpd_resp_send_err: 431 Request Header Fields Too Large - Header fields are too long**. In other words, our WebSocket client is actually giving us way too much information and our ESP32 doesn't have enough memory allocated to handle these headers.     
+- To fix this go to _menuconfig_ and change the `Component config > HTTP Server > Max HTTP Request Header Length` to _1024_     
+- Go back to _Simple Websocket client_ type in URL `ws://my-esp32.local/ws`, hit _Open_ and type in `hello from client` in the _Request_ box and hit _Send_.     
+- Finally press pushbutton of ESP32.       
+     
+<img src="../imgs/07.png" alt="Simple Websocket client demo" title="Simple Websocket client demo">     
