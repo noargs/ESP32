@@ -1,0 +1,6 @@
+- Download [BLE Scanner](https://play.google.com/store/apps/details?id=com.macdom.ble.blescanner) on Android connect      
+- Run `idf.py flash monitor` in the terminal         
+- Connect BLE Scanner with you ESP32       
+- In the BLE Scanner go to _DEVICE INFORMATION_ and then _CUSTOM CHARACTERISTIC_ and Write you message there, that will apear in the IDF Terminal    
+- Also Shows static battery level of 85% when connected to the PC    
+- Periodic timer (can also use interrupt) which updates the battery status and notify the client 

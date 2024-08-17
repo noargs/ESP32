@@ -1,0 +1,4 @@
+- Download [BLE Scanner](https://play.google.com/store/apps/details?id=com.macdom.ble.blescanner) on Android connect      
+- Run `idf.py flash monitor` in the terminal         
+- Connect BLE Scanner with you ESP32       
+- In the BLE Scanner go to _DEVICE INFORMATION_ and then _CUSTOM CHARACTERISTIC_ and Write you message there, that will apear in the IDF Terminal 
